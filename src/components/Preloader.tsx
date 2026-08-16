@@ -281,3 +281,5 @@ export default function Preloader({ onComplete }: PreloaderProps) {
     </div>
   );
 }
+
+// optimized for better readability
