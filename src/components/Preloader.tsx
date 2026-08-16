@@ -283,3 +283,5 @@ export default function Preloader({ onComplete }: PreloaderProps) {
 }
 
 // optimized for better readability
+
+// more explicit handling
