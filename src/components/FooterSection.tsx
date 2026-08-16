@@ -179,3 +179,5 @@ export default function FooterSection() {
     </footer>
   );
 }
+
+// reduced duplication
