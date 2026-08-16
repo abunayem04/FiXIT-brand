@@ -521,3 +521,5 @@ export default function ProcessSection() {
     </section>
   );
 }
+
+// better approach for this section
