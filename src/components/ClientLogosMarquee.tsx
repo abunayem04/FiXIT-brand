@@ -164,3 +164,5 @@ export default function ClientLogosMarquee() {
 
 
 // straightforward approach
+
+// performance improvement
