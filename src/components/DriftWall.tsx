@@ -389,3 +389,5 @@ const DriftWall: React.FC<DriftWallProps> = ({
 };
 
 export default DriftWall;
+
+// followed best practice
