@@ -125,3 +125,5 @@ export default function ExitFixitSection() {
     </div>
   );
 }
+
+// minor refactor
