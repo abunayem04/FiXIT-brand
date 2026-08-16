@@ -1,0 +1,535 @@
+.footer {
+  width: 100%;
+  background-color: #030206;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: clamp(70px, 8dvh, 100px) 24px clamp(20px, 2.5dvh, 32px) 24px;
+  font-family: var(--font-geist-sans), sans-serif;
+  z-index: 10;
+}
+
+/* ─── High-Tech Crosshair / Dot Grid Backdrop ──────────────── */
+.dotGridBackdrop {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ambientPurpleAura {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 450px;
+  background: radial-gradient(ellipse at bottom, rgba(124, 58, 237, 0.18) 0%, rgba(76, 29, 149, 0.05) 50%, transparent 75%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ─── Top 3-Column Grid ────────────────────────────────────── */
+.topGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.2fr;
+  gap: clamp(32px, 5vw, 70px);
+}
+
+/* Column 1: Brand Info */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.handwrittenSignature {
+  font-family: var(--font-signature), "Alex Brush", "Dancing Script", cursive, sans-serif;
+  font-size: clamp(3rem, 4.6vw, 4.4rem);
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 14px rgba(255, 255, 255, 0.25);
+}
+
+.brandDescription {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  max-width: 440px;
+  margin: 0;
+}
+
+.socialsGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.socialCircleBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.socialCircleBtn:hover {
+  background: rgba(168, 85, 247, 0.2);
+  border-color: rgba(192, 132, 252, 0.6);
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+}
+
+/* Columns 2 & 3: Links */
+.linksCol {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.monoHeader {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.linkItem {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: max-content;
+}
+
+.linkItem:hover {
+  color: #c084fc;
+  transform: translateX(4px);
+}
+
+/* ─── Middle Contact & Location Rows ───────────────────────── */
+.middleMetaSection {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-top: 10px;
+}
+
+.metaBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metaLabel {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.emailRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c084fc;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  width: max-content;
+}
+
+.emailRow:hover {
+  color: #e9d5ff;
+  transform: translateX(4px);
+}
+
+.emailPulseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #a855f7;
+  box-shadow: 0 0 10px #a855f7;
+}
+
+.locationText {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+}
+
+/* ─── Moving Horizontal Stream of Alternating FIXIT Logos (Right to Left) ─── */
+.giantLogoContainer {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  overflow: hidden;
+  margin-top: clamp(16px, 2.5dvh, 32px);
+  margin-bottom: clamp(-60px, -6vw, -30px);
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
+/* 2-Side Deep Obsidian Black Shadow Vignettes */
+.sideShadowLeft {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: clamp(80px, 16vw, 240px);
+  background: linear-gradient(to right, #030206 0%, rgba(3, 2, 6, 0.85) 45%, transparent 100%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.sideShadowRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: clamp(80px, 16vw, 240px);
+  background: linear-gradient(to left, #030206 0%, rgba(3, 2, 6, 0.85) 45%, transparent 100%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.logoMarqueeTrack {
+  display: flex;
+  align-items: flex-end;
+  gap: 0px;
+  width: max-content;
+  animation: scrollLogosLeft 36s linear infinite;
+  will-change: transform;
+}
+
+@keyframes scrollLogosLeft {
+  0% {
+    transform: translate3d(0%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Individual Alternating Logos in the Track */
+.logoItemPurple,
+.logoItemWhite {
+  flex-shrink: 0;
+  width: clamp(340px, 42vw, 620px);
+  height: clamp(240px, 30vw, 440px);
+  -webkit-mask-image: url("/logo.png");
+  mask-image: url("/logo.png");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center bottom;
+  mask-position: center bottom;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.95));
+}
+
+/* Type A: Vibrant Purple/Amethyst Gradient */
+.logoItemPurple {
+  background: linear-gradient(180deg, #a855f7 0%, #7c3aed 30%, #5b21b6 60%, #2e1065 85%, #0e051a 100%);
+}
+
+/* Type B: Luminous Crisp White / Platinum Gradient */
+.logoItemWhite {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 35%, #94a3b8 70%, #334155 90%, #030206 100%);
+}
+
+/* ─── Clean Bold Center Separator Dot Between Logos (Tight Gap) ─── */
+.logoCenterDotWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: clamp(240px, 30vw, 440px);
+  padding: 0 clamp(4px, 0.8vw, 14px);
+  margin: 0;
+}
+
+.logoCenterDot {
+  width: clamp(18px, 2.2vw, 36px);
+  height: clamp(18px, 2.2vw, 36px);
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: none;
+  border: none;
+}
+
+/* ─── Horizontal Liquid Fluted Glass Overlay (Covers 80% of Logo) ─── */
+.horizontalLiquidGlass {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80%; /* 80% coverage leaving 20% visible at the top */
+  backdrop-filter: blur(14px) saturate(180%) brightness(1.05);
+  -webkit-backdrop-filter: blur(14px) saturate(180%) brightness(1.05);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(147, 51, 234, 0.15) 15%,
+    rgba(30, 12, 54, 0.55) 50%,
+    rgba(3, 2, 6, 0.92) 100%
+  );
+  border-top: 1.5px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 
+    0 -12px 35px rgba(147, 51, 234, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.45);
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Multiple Horizontal Refraction / 6 Sleek Distinct Fluted Glass Lines */
+.horizontalRibbedLines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 18px 0;
+  z-index: 1;
+}
+
+.singleGlassLine {
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 12%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.08) 88%,
+    transparent 100%
+  );
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  opacity: 0.85;
+}
+
+/* Dynamic Top Specular Light Beam on Glass Rim */
+.glassSpecularBeam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 20%,
+    #ffffff 50%,
+    rgba(192, 132, 252, 0.8) 70%,
+    transparent 100%
+  );
+  animation: glassShimmer 5s ease-in-out infinite alternate;
+}
+
+@keyframes glassShimmer {
+  0% { transform: translateX(-30%); opacity: 0.7; }
+  100% { transform: translateX(30%); opacity: 1; }
+}
+
+.glassCausticGlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 40px;
+  background: radial-gradient(ellipse at top, rgba(192, 132, 252, 0.35) 0%, transparent 70%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+/* ─── React Bits Dynamic TextLoop Ribbon ────────────────────── */
+.textLoopWrapper {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-top: -30px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 3;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+/* ─── Bottom Meta Bar (Sleek Overlay Over Bleeding Logo) ────────── */
+.bottomBar {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  background: linear-gradient(to top, rgba(3, 2, 6, 0.92) 0%, rgba(3, 2, 6, 0.4) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.copyrightText {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: clamp(0.82rem, 1vw, 0.95rem);
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.copyrightLink {
+  color: #c084fc;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  font-size: 1.05em;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  border-bottom: 1.5px solid rgba(192, 132, 252, 0.45);
+  padding-bottom: 1px;
+}
+
+.copyrightLink:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+  text-shadow: 0 0 14px rgba(192, 132, 252, 0.8), 0 0 28px rgba(168, 85, 247, 0.6);
+  transform: translateY(-1px);
+}
+
+.craftedWith {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topPillBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.topPillBtn:hover {
+  background: rgba(168, 85, 247, 0.25);
+  border-color: rgba(192, 132, 252, 0.6);
+  transform: translateY(-2px);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.35);
+}
+
+/* ─── Responsive Adjustments ────────────────────────────────── */
+@media (max-width: 960px) {
+  .topGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 60px 18px 24px 18px;
+  }
+  .bottomBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .craftedWith {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

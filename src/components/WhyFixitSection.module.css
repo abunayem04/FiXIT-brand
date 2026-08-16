@@ -1,0 +1,374 @@
+.section {
+  width: 100vw;
+  background: #040407;
+  position: relative;
+  font-family: var(--font-geist-sans), sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: clamp(70px, 9dvh, 120px) 24px;
+  color: #ffffff;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 500px;
+  background: radial-gradient(ellipse at center, rgba(164, 97, 216, 0.15) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.header {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(164, 97, 216, 0.12);
+  border: 1px solid rgba(164, 97, 216, 0.3);
+  padding: 6px 16px;
+  border-radius: 9999px;
+  color: #dcdffe;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #a461d8;
+  box-shadow: 0 0 8px #a461d8;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin: 0 0 16px 0;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.titleGradient {
+  background: linear-gradient(135deg, #ffffff 40%, #a461d8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Bento Grid */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.cardSpan2 {
+  grid-column: span 2;
+}
+
+.bentoCard {
+  background: #08080d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bentoCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(164, 97, 216, 0.4);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 25px rgba(164, 97, 216, 0.15);
+}
+
+.cardGlow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle at top right, rgba(164, 97, 216, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.moduleCode {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.statusPill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #a461d8;
+  background: rgba(164, 97, 216, 0.12);
+  border: 1px solid rgba(164, 97, 216, 0.3);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  letter-spacing: 0.05em;
+}
+
+.statusPillGreen {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  letter-spacing: 0.05em;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cardTitle {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.highlight {
+  color: #a461d8;
+}
+
+.cardDesc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Waveform Box */
+.waveformBox {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.metricRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 16px;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metricValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.metricLabel {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.waveSvg {
+  width: 100%;
+  height: 60px;
+  display: block;
+}
+
+/* Tag Matrix */
+.tagMatrix {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.pillTag {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Speed Gauge */
+.speedGaugeRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 16px 20px;
+  margin-top: 12px;
+}
+
+.speedCircle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+}
+
+.speedScore {
+  position: absolute;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #34d399;
+}
+
+.speedMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.statLine {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.statLine strong {
+  color: #ffffff;
+}
+
+/* Workflow Steps */
+.workflowSteps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 12px;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stepIndex {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #a461d8;
+  background: rgba(164, 97, 216, 0.12);
+  border: 1px solid rgba(164, 97, 216, 0.3);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stepItem strong {
+  display: block;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.stepItem p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.stepArrow {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+  .bentoGrid {
+    grid-template-columns: 1fr;
+  }
+  .cardSpan2 {
+    grid-column: span 1;
+  }
+  .workflowSteps {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .stepArrow {
+    display: none;
+  }
+}

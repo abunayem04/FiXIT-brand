@@ -1,0 +1,525 @@
+/* ══════════════════════════════════════════════════════════════════════════════
+   FIXIT - WHAT WE DO / HOW WE FIX YOUR BRAND (STICKY SCROLL ARCHITECTURE)
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+.section {
+  width: 100%;
+  background-color: #030305;
+  color: #ffffff;
+  padding: 130px 0 160px 0;
+  position: relative;
+  z-index: 15;
+  overflow: visible;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.ambientGlow {
+  position: fixed;
+  top: 30%;
+  right: 15%;
+  width: 850px;
+  height: 650px;
+  filter: blur(140px);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.55;
+  transition: background 0.8s ease-in-out;
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 5vw;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* ─── Top Editorial Header ─────────────────────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 1000px;
+}
+
+.pillBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #d1d5db;
+  padding: 7px 18px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 28px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.pillDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+  transition: background-color 0.4s ease;
+}
+
+.mainTitle {
+  font-size: clamp(2.4rem, 4.6vw, 3.9rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.serifItalic {
+  font-family: "Playfair Display", "Instrument Serif", "Cormorant Garamond", "Georgia", "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #f8fafc;
+}
+
+/* ─── Split Layout: Left Sticky + Right Scroll Stream ──────────────────── */
+.contentSplit {
+  display: flex;
+  gap: 72px;
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
+}
+
+/* ─── Sticky Left Column ───────────────────────────────────────────────── */
+.stickyCol {
+  width: 36%;
+  max-width: 440px;
+  position: sticky;
+  top: 170px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.stickyInner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Step navigation indicators */
+.stepNav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.stepBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.3s ease;
+}
+
+.stepNum {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.08em;
+  transition: color 0.3s ease;
+}
+
+.stepBar {
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stepBtnActive .stepNum {
+  color: #ffffff;
+}
+
+.stepBtnActive .stepBar {
+  width: 44px;
+}
+
+/* Dynamic text chamber with smooth 3D masked reveal */
+.textChamber {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@keyframes chamberCategoryReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes chamberWordRise {
+  0% {
+    opacity: 0;
+    transform: translateY(125%) rotateX(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%) rotateX(0deg);
+  }
+}
+
+@keyframes chamberSubFade {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes chamberLineGrow {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes chamberDescReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+.animCategory {
+  animation: chamberCategoryReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animTitleMask {
+  display: block;
+  overflow: hidden;
+  line-height: 1.15;
+}
+
+.animTitleWord {
+  display: inline-block;
+  opacity: 0;
+  animation: chamberWordRise 1.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+  transform-origin: 50% 100%;
+}
+
+.animSubtitle {
+  opacity: 0;
+  animation: chamberSubFade 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+  will-change: transform, opacity;
+}
+
+.animUnderline {
+  transform-origin: left center;
+  animation: chamberLineGrow 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  will-change: transform, opacity;
+}
+
+.animDesc {
+  opacity: 0;
+  animation: chamberDescReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.28s forwards;
+  will-change: transform, opacity, filter;
+}
+
+.serviceCategory {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  transition: color 0.4s ease;
+}
+
+.serviceTitle {
+  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.serviceSubtitle {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 6px;
+  letter-spacing: 0.02em;
+}
+
+.titleUnderline {
+  height: 2px;
+  width: 100%;
+  max-width: 320px;
+  margin: 16px 0 24px 0;
+  border-radius: 2px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.serviceDesc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.74);
+  margin: 0 0 36px 0;
+  max-width: 390px;
+  font-weight: 400;
+}
+
+.ctaWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.seeMoreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.02rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid transparent;
+}
+
+.seeMoreLink:hover {
+  opacity: 0.85;
+  border-bottom-color: currentColor;
+}
+
+.arrowIcon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.seeMoreLink:hover .arrowIcon {
+  transform: translateX(6px);
+}
+
+/* ─── Right Column: Scroll Feed ────────────────────────────────────────── */
+.scrollFeed {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 130px;
+  width: 100%;
+}
+
+.serviceRow {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  scroll-margin-top: 180px;
+  transition: opacity 0.4s ease;
+  padding-bottom: 75px;
+}
+
+.mobileHeader {
+  display: none;
+}
+
+.dualCardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  width: 100%;
+  align-items: start;
+}
+
+/* ─── Individual Showcase Card (Staggered Upor-Nice Offset) ─── */
+.showcaseCard {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 14px;
+  background: #09090f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.75);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.45s ease,
+              box-shadow 0.45s ease;
+}
+
+/* Card 1: Positioned at top */
+.showcaseCard:nth-child(1) {
+  transform: translateY(0);
+}
+
+.showcaseCard:nth-child(1):hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 32px 64px -15px rgba(0, 0, 0, 0.88);
+}
+
+/* Card 2: Shifted downwards (Asymmetrical Upor-Nice Look) */
+.showcaseCard:nth-child(2) {
+  transform: translateY(64px);
+}
+
+.showcaseCard:nth-child(2):hover {
+  transform: translateY(56px);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 32px 64px -15px rgba(0, 0, 0, 0.88);
+}
+
+.cardImageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 3.8;
+  overflow: hidden;
+  background: #050508;
+  border-radius: 14px;
+}
+
+.cardImg {
+  object-fit: cover;
+  /* Pure flat rendering, zero hover zoom */
+  transform: none;
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 70%,
+    rgba(3, 3, 5, 0.25) 100%
+  );
+  pointer-events: none;
+}
+
+/* ─── Responsive Adjustments ───────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .contentSplit {
+    gap: 48px;
+  }
+
+  .stickyCol {
+    width: 38%;
+  }
+
+  .dualCardGrid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 90px 0 110px 0;
+  }
+
+  .contentSplit {
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  .stickyCol {
+    display: none;
+  }
+
+  .mobileHeader {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .mobileCategory {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .mobileTitle {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .mobileUnderline {
+    height: 2px;
+    width: 100%;
+    max-width: 260px;
+    margin: 12px 0 16px 0;
+    border-radius: 2px;
+  }
+
+  .mobileDesc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  .scrollFeed {
+    gap: 72px;
+  }
+
+  .serviceRow {
+    padding-bottom: 0;
+  }
+
+  .dualCardGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .showcaseCard:nth-child(1),
+  .showcaseCard:nth-child(2) {
+    transform: none;
+  }
+
+  .showcaseCard:nth-child(1):hover,
+  .showcaseCard:nth-child(2):hover {
+    transform: translateY(-6px);
+  }
+}

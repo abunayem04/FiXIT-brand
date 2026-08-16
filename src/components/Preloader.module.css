@@ -1,0 +1,160 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 999999;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: all;
+  background: transparent;
+}
+
+/* ─── Left Door (Slides to the left) ─── */
+.doorLeft {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50vw;
+  height: 100vh;
+  height: 100dvh;
+  background: #030305;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: clamp(2.5rem, 5.5vw, 6.5rem);
+  overflow: hidden;
+  will-change: transform;
+  z-index: 10;
+}
+
+/* ─── Right Door (Slides to the right) ─── */
+.doorRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50vw;
+  width: 50vw;
+  height: 100vh;
+  height: 100dvh;
+  background: #030305;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: clamp(2.5rem, 5.5vw, 6.5rem);
+  overflow: hidden;
+  will-change: transform;
+  z-index: 10;
+}
+
+.doorBg {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(96, 9, 153, 0.18) 0%, transparent 60%),
+    #030305;
+  pointer-events: none;
+}
+
+.doorContentLeft,
+.doorContentRight {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.2rem, 1.2vw, 1.4rem);
+}
+
+/* Big Luxury Bold Typography */
+.letter {
+  display: inline-block;
+  font-size: clamp(5.5rem, 15vw, 12.5rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  text-transform: uppercase;
+  will-change: transform, opacity;
+  text-shadow: 0 0 35px rgba(164, 97, 216, 0.4), 0 10px 30px rgba(0, 0, 0, 0.9);
+}
+
+/* Center Luminous Laser Seams on Door Edges */
+.doorSeamLeft {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent 10%, rgba(192, 132, 252, 0.6) 50%, transparent 90%);
+  box-shadow: 0 0 12px rgba(164, 97, 216, 0.8);
+}
+
+.doorSeamRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent 10%, rgba(192, 132, 252, 0.6) 50%, transparent 90%);
+  box-shadow: 0 0 12px rgba(164, 97, 216, 0.8);
+}
+
+/* ─── Center Energy Core Glow ─── */
+.energyCore {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.9) 0%, rgba(164, 97, 216, 0.5) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 25;
+  mix-blend-mode: screen;
+}
+
+/* ─── Center Stage: FIXIT Iconic "X" Brand Logo (Sits across the split seam) ─── */
+.xIconStage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(5.2rem, 14vw, 11.5rem);
+  height: clamp(5.2rem, 14vw, 11.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  pointer-events: none;
+  filter: drop-shadow(0 0 25px rgba(164, 97, 216, 0.7));
+}
+
+.xSvg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.shard {
+  transform-origin: 70px 70px;
+  will-change: transform, opacity;
+}
+
+@media (max-width: 768px) {
+  .doorLeft {
+    padding-right: clamp(1.2rem, 3.5vw, 2.5rem);
+  }
+  .doorRight {
+    padding-left: clamp(1.2rem, 3.5vw, 2.5rem);
+  }
+  .letter {
+    font-size: clamp(3.8rem, 17vw, 6.5rem);
+  }
+  .xIconStage {
+    width: clamp(3.6rem, 16vw, 6.2rem);
+    height: clamp(3.6rem, 16vw, 6.2rem);
+  }
+}

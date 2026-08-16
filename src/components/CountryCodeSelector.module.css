@@ -1,0 +1,202 @@
+.selectorWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.triggerBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  height: 100%;
+  background: transparent;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  outline: none;
+}
+
+.triggerBtn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.flagImg {
+  width: 20px;
+  height: 15px;
+  border-radius: 2.5px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dialCodeText {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+}
+
+.chevron {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+  color: #a855f7;
+}
+
+/* ─── Floating Glassmorphic Dropdown Popover ─── */
+.dropdownPopover {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 320px;
+  max-width: 88vw;
+  background: #0d0d14;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  box-shadow: 
+    0 24px 60px -10px rgba(0, 0, 0, 0.95),
+    0 0 25px rgba(124, 58, 237, 0.18);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 1000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  overscroll-behavior: contain;
+  animation: popoverFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.searchIcon {
+  color: rgba(255, 255, 255, 0.45);
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.countryList {
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+/* Custom sleek scrollbar */
+.countryList::-webkit-scrollbar {
+  width: 5px;
+}
+
+.countryList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.countryList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+}
+
+.countryItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.88rem;
+  text-align: left;
+  transition: background-color 0.18s ease;
+  width: 100%;
+}
+
+.countryItem:hover {
+  background-color: rgba(168, 85, 247, 0.16);
+}
+
+.countryItemActive {
+  background-color: rgba(168, 85, 247, 0.25);
+  border-left: 3px solid #a855f7;
+}
+
+.countryItemLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.countryName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.itemDialCode {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #c084fc;
+  background: rgba(192, 132, 252, 0.12);
+  padding: 2px 7px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.noResults {
+  padding: 20px;
+  text-align: center;
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.45);
+}
