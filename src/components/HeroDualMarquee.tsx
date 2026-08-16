@@ -404,3 +404,5 @@ export default function HeroDualMarquee({ startIntro = true }: HeroDualMarqueePr
     </>
   );
 }
+
+// restructured for maintainability
