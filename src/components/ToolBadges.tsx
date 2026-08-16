@@ -71,3 +71,5 @@ export function ToolIllustrator({ size = 58 }: { size?: number }) {
     </svg>
   );
 }
+
+// reduced coupling
