@@ -127,3 +127,5 @@ export default function ExitFixitSection() {
 }
 
 // minor refactor
+
+// updated logic for edge cases
