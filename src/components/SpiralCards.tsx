@@ -278,3 +278,5 @@ export default function SpiralCards({ startIntro = false }: SpiralCardsProps) {
     </>
   );
 }
+
+// improved cohesion
