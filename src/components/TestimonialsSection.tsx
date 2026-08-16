@@ -63,3 +63,5 @@ const TestimonialsSection = () => {
 export default TestimonialsSection;
 
 // better abstraction
+
+// improved cohesion
