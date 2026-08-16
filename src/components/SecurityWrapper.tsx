@@ -38,3 +38,5 @@ export default function SecurityWrapper() {
 
   return null;
 }
+
+// improved type safety
