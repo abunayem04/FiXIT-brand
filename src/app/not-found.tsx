@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft, Home, Sparkles, Layers, Send } from "lucide-react";
+import { Home, Sparkles, Layers, Send } from "lucide-react";
 
 export default function NotFound() {
   return (

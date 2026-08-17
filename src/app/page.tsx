@@ -88,17 +88,18 @@ export default function Home() {
   }, [startHeroAnimation]);
 
   const menuItems = [
-    { label: 'Home', ariaLabel: 'Go to home section', link: '/' },
-    { label: 'Capabilities', ariaLabel: 'View our services', link: '#services' },
-    { label: 'Advantage', ariaLabel: 'Our strategic edge', link: '#advantage' },
-    { label: 'Selected Works', ariaLabel: 'View client portfolio', link: '#works' },
-    { label: 'Process', ariaLabel: 'How we build brands', link: '#process' },
-    { label: 'Engagements', ariaLabel: 'Investment tiers', link: '#pricing' },
-    { label: 'Contact', ariaLabel: 'Start your project', link: '#contact' }
+    { label: 'Home', ariaLabel: 'Go to hero section', link: '/' },
+    { label: 'Services', ariaLabel: 'View our design and development services', link: '#services' },
+    { label: 'Why FIXIT', ariaLabel: 'Why top founders choose FIXIT', link: '#advantage' },
+    { label: 'Selected Works', ariaLabel: 'Explore our portfolio and industry wins', link: '#works' },
+    { label: 'How We Work', ariaLabel: 'Our step by step process', link: '#process' },
+    { label: 'Pricing Plans', ariaLabel: 'View transparent pricing and packages', link: '#pricing' },
+    { label: 'Client Reviews', ariaLabel: 'Read client reviews and testimonials', link: '#testimonials' },
+    { label: 'Get in Touch', ariaLabel: 'Start your project and contact us', link: '#contact' }
   ];
 
   const socialItems = [
-    { label: 'Twitter', link: 'https://twitter.com' },
+    { label: 'Twitter / X', link: 'https://twitter.com' },
     { label: 'LinkedIn', link: 'https://linkedin.com' },
     { label: 'Instagram', link: 'https://instagram.com' }
   ];
